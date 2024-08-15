@@ -46,6 +46,8 @@
 // import Header from "./components/Header.js";
 // import Footer from "./components/Footer.js";
 import "./App.css";
+import { useState } from 'react';
+
 
 // export default class App extends Component {
 //   render() {
@@ -63,12 +65,26 @@ import "./App.css";
 
 function App()
 {
-  let count=0;
+  //replacing this with usestate
+  //let count=0;
+  const [count, setCount] = useState(0);
 
   function handleAdd()
   {
-    count+=1;
-    console.log(count);
+    //  count+=1;
+    //  console.log(count);
+   // setCount(count + 1);
+    setCount(count => count + 5);
+  }
+
+  function handleSub()
+  {
+    setCount(count - 1);
+  }
+
+  function Reset()
+  {
+    setCount(0);
   }
 
   return (
@@ -76,7 +92,8 @@ function App()
       <div className="box">
         <p>{count}</p>
         <button onClick={handleAdd} className="add">ADD</button>
-        <button className="sub">SUB</button>
+        <button onClick={handleSub} className="sub">SUB</button>
+        <button onClick={Reset} className="reset">RESET</button>
       </div>
     </div>
   )

@@ -43,13 +43,19 @@
 
 //class based component
 import React, { Component } from 'react'
+import Header from "./components/Header.js";
+import Footer from "./components/Footer.js";
 
 export default class App extends Component {
   render() {
     return (
-      <div>
+      <>
+        <Header/>
+        <div>
         <h1>Ramya is teh best</h1>
       </div>
+      <Footer />
+      </>
     )
   }
 }

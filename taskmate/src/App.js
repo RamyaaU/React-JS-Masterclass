@@ -42,20 +42,44 @@
 // export default App
 
 //class based component
-import React, { Component } from 'react'
-import Header from "./components/Header.js";
-import Footer from "./components/Footer.js";
+//import React, { Component } from 'react'
+// import Header from "./components/Header.js";
+// import Footer from "./components/Footer.js";
+import "./App.css";
 
-export default class App extends Component {
-  render() {
-    return (
-      <>
-        <Header/>
-        <div>
-        <h1>Ramya is teh best</h1>
-      </div>
-      <Footer />
-      </>
-    )
+// export default class App extends Component {
+//   render() {
+//     return (
+//       <>
+//         <Header/>
+//         <div>
+//         <h1>Ramya is the best</h1>
+//       </div>
+//       <Footer />
+//       </>
+//     )
+//   }
+// }
+
+function App()
+{
+  let count=0;
+
+  function handleAdd()
+  {
+    count+=1;
+    console.log(count);
   }
+
+  return (
+    <div className="App">
+      <div className="box">
+        <p>{count}</p>
+        <button onClick={handleAdd} className="add">ADD</button>
+        <button className="sub">SUB</button>
+      </div>
+    </div>
+  )
 }
+
+export default App;

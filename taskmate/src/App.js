@@ -73,8 +73,8 @@ function App()
   {
     //  count+=1;
     //  console.log(count);
-   // setCount(count + 1);
-    setCount(count => count + 5);
+    setCount(count + 1);
+    //setCount(count => count + 5);
   }
 
   function handleSub()

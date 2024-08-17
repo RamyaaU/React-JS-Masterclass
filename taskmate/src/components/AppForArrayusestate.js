@@ -9,6 +9,13 @@ function AppForArrayuse()
         {id:3, name : "Watch lectures", completed :false}, 
         ]);
 
+
+    function handleDelete(id)
+    {
+        setTasks(tasks.filter(task => task.id !== id));
+        //console.log(tasks.id);
+    }
+
     return(
         <div className="App">
             <h1>Task List</h1>
@@ -26,7 +33,7 @@ function AppForArrayuse()
                 {tasks.map((task) => (
                     <li key={task.id}>
                         <span>{task.id}-{task.name}</span>
-                        <button className='delete'>Delete</button>
+                        <button onClick={() => handleDelete(task.id)} className='delete'>Delete</button>
                         </li>
                 ))}
 

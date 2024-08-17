@@ -4,9 +4,8 @@ export const AddTask = ({ tasklist, setTasklist, task, setTask }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
         const date = new Date();
-        const taskName = e.target.task.value.trim(); // Get trimmed value from input
+        const taskName = e.target.task.value.trim();
 
         if (task.id) {
             // Update existing task
@@ -21,15 +20,14 @@ export const AddTask = ({ tasklist, setTasklist, task, setTask }) => {
             setTask({}); // Clear task object after update
         } else {
             // Add new task
-            if (taskName) { // Ensure task name is not empty
+            if (taskName) {
                 const newTask = {
                     id: date.getTime(),
                     name: taskName,
                     time: `${date.toLocaleTimeString()} ${date.toLocaleDateString()}`
                 };
-
                 setTasklist([...tasklist, newTask]);
-                e.target.task.value = ""; // Clear input field
+                e.target.task.value = ""; // clear input field
             }
         }
     };
@@ -42,7 +40,7 @@ export const AddTask = ({ tasklist, setTasklist, task, setTask }) => {
                     name='task'
                     autoComplete='off'
                     placeholder='add task'
-                    value={task.name || ''} // Ensure input value is controlled
+                    value={task.name || ''}
                     maxLength="25"
                     onChange={e => setTask({ ...task, name: e.target.value })}
                 />

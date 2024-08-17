@@ -9,9 +9,10 @@ export const ShowTask = ({tasklist,setTasklist, task, setTask}) => {
     //     {id:1003, name : "Task C", time: "04:06 PM 17/08/2024"},
     // ]
 
-    const handleEdit = () => 
+    const handleEdit = (id) => 
     {
-
+        const selectedTask = tasklist.find(task => task.id === id);
+        console.log(selectedTask);
     }
 
     

@@ -4,17 +4,25 @@ import circleicon from '../assets/circle.png';
 import crossicon from '../assets/cross.png';
 
 const TicTacToe = () => {
+  //creates board with 9 elements
   const initialBoard = Array(9).fill(null);
+  //board - holds current state and setBoard holds the updated value 
   const [board, setBoard] = useState(initialBoard);
+  //isnext is boolean
   const [isXNext, setIsXNext] = useState(true);
   const [winner, setWinner] = useState(null);
 
   const handleClick = (index) => {
-    if (board[index] || winner) return; // Prevent overriding and playing after game ends
+    //checks whether the winner is already present or the board position is already filled
+    if (board[index] || winner) return; 
 
+    //creates the copy of teh board
     const newBoard = [...board];
+    //updates the position
     newBoard[index] = isXNext ? 'X' : 'O';
+    //updates the board as per position
     setBoard(newBoard);
+    //if it was X's turn (isXNext was true), now it's O's turn (isXNext becomes false), and vice versa.
     setIsXNext(!isXNext);
 
     const winningPlayer = calculateWinner(newBoard);

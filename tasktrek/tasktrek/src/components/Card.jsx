@@ -1,19 +1,15 @@
-// import React from "react";
-
-// function Card()
-// {
-//     return <h1>Card components</h1>
-// }
-
-// export default Card;
-
 import React from 'react'
 
 const Card = () => {
   return (
-    <div>
+    // <div>
+    //    <h1>Card components</h1>
+    //    <button>Add Task</button>
+    // </div>
+     <React.Fragment>
        <h1>Card components</h1>
-    </div>
+       <button>Add Task</button>
+    </React.Fragment>
   )
 }
 

@@ -4,6 +4,7 @@ const CreateToDo = () => {
     let tasks = 0;
     //using use state 
     const [count, setCount] = useState(0);
+    const [input, setInput] = useState("")
     //const tasks = 0;
     //const hideButton =  false
     // const countTasks = () =>
@@ -13,16 +14,21 @@ const CreateToDo = () => {
     
     //click event function 
     const handleClick = () => {
-        tasks ++ ;
         //utilizing setcount
         setCount(count + 1);
-        console.log("Add Task", tasks);
+    }
+
+    const handleChange =  (event) => 
+    {
+        setInput(event.target.value);
     }
 
     return (
         <React.Fragment>
         <h1> Tasks : {tasks} </h1>
+        <input type="text" onChange={handleChange} />
         <button onClick={handleClick} value="Add task button">Add Task</button>
+        <h1>Input : {input}</h1>
      </React.Fragment>
     )
 }

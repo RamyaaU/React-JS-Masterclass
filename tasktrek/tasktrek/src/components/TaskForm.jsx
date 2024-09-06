@@ -12,10 +12,10 @@ const TaskForm = () => {
             <div className='task_form_bottom_line'>
                 <div>
                 {/* <button className='tag'>HTML</button> */}
-                <Tag />
-                <Tag />
-                <Tag />
-                <Tag />
+                <Tag tagName = "Html"/>
+                <Tag tagName = "CSS" />
+                <Tag tagName = "Javascript"/>
+                <Tag tagName = "React"/>
                 {/* <button className='tag'>CSS</button>
                 <button className='tag'>JS</button>
                 <button className='tag'>React</button> */}

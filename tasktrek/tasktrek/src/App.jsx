@@ -17,10 +17,12 @@
 
 import React from 'react'
 import '../src/App.css'
+import TaskForm from './components/TaskForm'
 
 const App = () => {
   return (
     <div className='app'>
+       <TaskForm />    
       <header className='app_header'>Header section </header>
       <main className='app_main'>
         <section className='task_column'>Section 1</section>

@@ -18,6 +18,7 @@
 import React from 'react'
 import Todo from "../assets/direct-hit.png"
 import "./TaskColumn.css"
+import TaskCard from './TaskCard'
 
 //old way of init props
 //const TaskColumn = (props) => {
@@ -30,6 +31,8 @@ const TaskColumn = ({title, icon}) => {
           <img className='task_column_icon' src={icon} alt="To do" /> {title}
           To do
         </h2>
+
+        <TaskCard />
       </section>
   )
 }

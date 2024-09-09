@@ -29,7 +29,7 @@ const TaskColumn = ({title, icon}) => {
           {/* //old way of calling props */}
           {/* <img className='task_column_icon' src={props} alt="To do" /> {props.title} */}
           <img className='task_column_icon' src={icon} alt="To do" /> {title}
-          To do
+          {/* To do */}
         </h2>
 
         <TaskCard />

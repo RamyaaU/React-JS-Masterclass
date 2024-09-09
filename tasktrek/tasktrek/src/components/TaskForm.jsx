@@ -10,12 +10,17 @@ const TaskForm = () => {
   });
 
   const selectTag = (tag) => {
-     //console.log(tag);
+     console.log(tag);
      if(taskData.tags.some(item => item === tag))
      {
       const filterTags = taskData.tags.filter(item => item !== tag)
       setTaskData(prev => {
         return{...prev, tags : filterTags}
+      })
+     }
+     else{
+      setTaskData(prev => {
+        return {...prev, tags: [...prev.tags, tag]}
       })
      }
   }
@@ -42,7 +47,7 @@ const TaskForm = () => {
             <div className='task_form_bottom_line'>
                 <div>
                 {/* <button className='tag'>HTML</button> */}
-                <Tag tagName = "Html" selectTag={selectTag}/>
+                <Tag tagName = "Html" selectTag={selectTag} />
                 <Tag tagName = "CSS" selectTag={selectTag}/>
                 <Tag tagName = "Javascript" selectTag={selectTag}/>
                 <Tag tagName = "React" selectTag={selectTag}/>

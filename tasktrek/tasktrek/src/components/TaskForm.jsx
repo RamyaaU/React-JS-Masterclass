@@ -3,27 +3,42 @@ import './TaskForm.css';
 import Tag from './Tag';
 
 const TaskForm = () => {
-  const[task, setTask]  = useState("");
-  const[status, setStatus] = useState("todo");
-  console.log(task);
+  const [taskData, setTaskData] = useState({
+      task: "",
+      status: "todo"
+  });
 
-  //handleTaskChange function captures the user input 
-  const handleTaskChange = e => {
-    setTask(e.target.value);
-  }
+  const handleChange = (e) => {
+      const { name, value } = e.target;  
+      setTaskData((prev) => {
+          return { ...prev, [name]: value };
+      });
+  };
 
-  //dropdown values are captured
-  const handleTaskStatus = e => {
-    setStatus(e.target.value);
+  const handleSubmit = (e) => {
+    e.preventDefault();
   }
+  // const[task, setTask]  = useState("");
+  // const[status, setStatus] = useState("todo");
+
+  // //handleTaskChange function captures the user input 
+  // const handleTaskChange = e => {
+  //   setTask(e.target.value);
+  // }
+
+  // //dropdown values are captured
+  // const handleTaskStatus = e => {
+  //   setStatus(e.target.value);
+  // }
 
   return (
     <div className='app'>
     
     <header className='app_header'>
-        <form>
-            <input type='text' className='task_input' placeholder='Enter your task' 
-              onChange={handleTaskChange}/>
+        <form onSubmit={handleSubmit}>
+            <input type='text' 
+            name="task" className='task_input' placeholder='Enter your task' 
+              onChange={handleChange}/>
             <div className='task_form_bottom_line'>
                 <div>
                 {/* <button className='tag'>HTML</button> */}
@@ -35,9 +50,8 @@ const TaskForm = () => {
                 <button className='tag'>JS</button>
                 <button className='tag'>React</button> */}
                 </div>
-
                 <div>
-                <select className='task_status' onChange={handleTaskStatus}>
+                <select className='task_status' name="status" onChange={handleChange}>
                     <option value='todo'>To Do</option>
                     <option value='doing'>Doing</option>
                     <option value='done'>Done</option>

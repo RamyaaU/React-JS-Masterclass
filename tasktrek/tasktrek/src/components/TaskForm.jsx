@@ -5,8 +5,20 @@ import Tag from './Tag';
 const TaskForm = () => {
   const [taskData, setTaskData] = useState({
       task: "",
-      status: "todo"
+      status: "todo",
+      tags: []
   });
+
+  const selectTag = (tag) => {
+     //console.log(tag);
+     if(taskData.tags.some(item => item === tag))
+     {
+      const filterTags = taskData.tags.filter(item => item !== tag)
+      setTaskData(prev => {
+        return{...prev, tags : filterTags}
+      })
+     }
+  }
 
   const handleChange = (e) => {
       const { name, value } = e.target;  
@@ -18,19 +30,7 @@ const TaskForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   }
-  // const[task, setTask]  = useState("");
-  // const[status, setStatus] = useState("todo");
-
-  // //handleTaskChange function captures the user input 
-  // const handleTaskChange = e => {
-  //   setTask(e.target.value);
-  // }
-
-  // //dropdown values are captured
-  // const handleTaskStatus = e => {
-  //   setStatus(e.target.value);
-  // }
-
+  
   return (
     <div className='app'>
     
@@ -42,10 +42,10 @@ const TaskForm = () => {
             <div className='task_form_bottom_line'>
                 <div>
                 {/* <button className='tag'>HTML</button> */}
-                <Tag tagName = "Html"/>
-                <Tag tagName = "CSS" />
-                <Tag tagName = "Javascript"/>
-                <Tag tagName = "React"/>
+                <Tag tagName = "Html" selectTag={selectTag}/>
+                <Tag tagName = "CSS" selectTag={selectTag}/>
+                <Tag tagName = "Javascript" selectTag={selectTag}/>
+                <Tag tagName = "React" selectTag={selectTag}/>
                 {/* <button className='tag'>CSS</button>
                 <button className='tag'>JS</button>
                 <button className='tag'>React</button> */}
